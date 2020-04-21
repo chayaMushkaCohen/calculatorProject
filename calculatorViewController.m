@@ -79,7 +79,6 @@
         [self addDistributionOperationAndCalculateLastOperation];
 
     }
-    NSLog(@"%@", [_numbers lastObject]);
     _isNewNumber = YES;
 }
 
@@ -399,7 +398,6 @@
         {
             _isCurrentNumberFraction = NO;
             [_numbers removeLastObject];
-            //[_fullyNmubersAndArithmeticSignsSequence removeLastObject]; // no "fraction place holder"
         }
         
         if (_numbers.count > 1) // at least one number and one mathematical operation
@@ -407,7 +405,6 @@
             _lastMathematicalOperaion = [_numbers objectAtIndex:(_numbers.count - 2)];
             _previousCalculationResult = [_numbers objectAtIndex:(_numbers.count - 1)];
         }
-        
         [self calculateEquation];
     }
 }
@@ -465,9 +462,6 @@
         [_numbers addObject:mathematicalOperationBeforeLastNumber];
         [_numbers addObject:_previousCalculationResult];
         [self calculateEquation];
-        //[_numbers addObject:_lastMathematicalOperaion];
-        //[_numbers addObject:_previousCalculationResult];
-        //[self calculateEquation];
     }
     else if (_previousCalculationResult == nil) // user entered /= only)
     {
@@ -566,8 +560,6 @@
     {
         [self adjustFontSizeToResultLength:result];
     }
-    NSLog(@"%lu", (unsigned long)_numbers.count);
-
     self.isNewNumber = YES;
 }
 
